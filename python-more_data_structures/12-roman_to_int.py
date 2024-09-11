@@ -2,6 +2,8 @@
 def roman_to_int(roman_string):
     previousNum = ''
     converted = 0
+    if not roman_string or not isinstance(roman_string, str):
+        return 0
     for number in roman_string:
         if number == "M":
             if previousNum == "C":
@@ -36,4 +38,6 @@ def roman_to_int(roman_string):
         else:
             converted += 1
         previousNum = number
+    if not (1 <= converted <= 3999):
+        return 0
     return converted
