@@ -5,6 +5,9 @@
 def say_my_name(first_name, last_name=""):
     """Prints the string that was input.
 
+    Args:
+        first_name (str): The first name to print.
+        last_name (str): The last name to print.
     Raises:
         TypeError: If first or last name is not a string.
     """
