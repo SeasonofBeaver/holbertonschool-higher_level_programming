@@ -1,0 +1,49 @@
+======================================
+How to use the `3-say_my_name.py` file
+======================================
+
+Prints the first and last name that were input.
+Using this prototype: ``say_my_name(first_name, last_name=""):``
+
+Usage:
+======
+
+```say_my_name(...)``` checks for string and then prints the given name.
+
+
+You import the programm using this line and then add 2 strings together:
+
+::
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+::
+
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+If you just type in 1 name there will just be the first name printed
+
+::
+
+    >>> say_my_name("Bob")
+    My name is Bob 
+
+Invalid Input:
+==============
+
+If you type in something else than a string you will get a TypeError
+
+::
+
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+::
+
+    >>> say_my_name("Walter", 12)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
