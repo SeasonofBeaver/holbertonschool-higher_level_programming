@@ -1,0 +1,66 @@
+======================================
+How to use the `0-add_integer.py` file
+======================================
+
+This function will be adding 2 integers together.
+Using this prototype: ``add_integer(a, b=98):``
+
+Usage:
+======
+
+``add_integer(...)``` returns the addition of 2 number values.
+
+
+You import the programm using this line and then add 2 integers together:
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> print(add_integer(1, 2))
+    3
+
+::
+
+    >>> print(add_integer(100, -2))
+    98
+
+Float values also work (Just be careful, they will be casted into integer)
+
+::
+
+    >>> print(add_integer(100.3, -2))
+    98
+
+::
+
+    >>> print(add_integer(0.3, 2.9))
+    2
+
+The 2nd argument is preset to 98 if just 1 argument is given
+
+::
+
+    >>> print(add_integer(5))
+    103
+
+If you type any value other than Integer or Float you will get a TypeError
+
+::
+
+    >>> print(add_integer(4, "School"))
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+
+::
+
+    >>> print(add_integer("Hello"))
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+If both arguments are nonInteger values only the first one is being noticed as an TypeError
+
+::
+
+    >>> print(add_integer("Best", "School"))
+    Traceback (most recent call last):
+    TypeError: a must be an integer
