@@ -18,4 +18,4 @@ def print_square(size):
     for row in range(size):
         for char in range(size):
             print("#", end="")
-        print()
+        print("")
