@@ -15,4 +15,4 @@ def text_indentation(text):
             while char < len(text) and text[char] == ' ':
                 char += 1
             continue
-        char += 1        
+        char += 1
