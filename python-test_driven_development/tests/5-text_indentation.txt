@@ -1,14 +1,14 @@
-======================================
-How to use the `5-text_indentation.py` file
-======================================
+================================
+How to Use 5-text_indentation.py
+================================
 
-Prints a text with 2 new lines for every '.', '?' or ':'.
-Using this prototype: ``text_indentation(text):``
+This module defines a text-indentation function ``text_indentation(text)``.
 
-Usage:
-======
+Usage
+=====
 
-```text_indentation(...)``` prints a text with new lines every ".?:".
+Text is printed with two new lines after each of the characters `.`, `?`,
+and `:`.
 
 ::
 
@@ -29,7 +29,7 @@ No spaces are printed at the beginning of a line.
 
     >>> text_indentation("          ")
 
-No spaces are printed at the end of each printed line.
+Similarly, no spaces are printed at the end of each printed line.
 
 ::
 
@@ -79,19 +79,20 @@ New lines within a string are printed as normal.
     new line.
     <BLANKLINE>
 
-An example for a big text.
+A combo example:
 
 ::
 
-    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
-        Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
-        Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
-        Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
-        Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
-        rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
-        stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
-        cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
-        beatiorem! Iam ruinas videres""")
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing "
+    ... "elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas "
+    ... "commovere? Non autem hoc: igitur ne illud quidem. Fortasse id optimum, "
+    ... "sed ubi illud: Plus semper voluptatis? Teneo, inquit, finem illi videri "
+    ... "nihil dolere. Transfer idem ad modestiam vel temperantiam, quae est "
+    ... "moderatio cupiditatum rationi oboediens. Si id dicis, vicimus. Inde "
+    ... "sermone vario sex illa a Dipylo stadia confecimus. Sin aliud quid "
+    ... "voles, postea. Quae animi affectio suum cuique tribuens atque hanc, "
+    ... "quam dico. Utinam quidem dicerent alium alio beatiorem! Iam ruinas "
+    ... "videres") # doctest: +NORMALIZE_WHITESPACE
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     <BLANKLINE>
     Quonam modo?
@@ -108,7 +109,8 @@ An example for a big text.
     <BLANKLINE>
     Teneo, inquit, finem illi videri nihil dolere.
     <BLANKLINE>
-    Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum rationi oboediens.
+    Transfer idem ad modestiam vel temperantiam, 
+    quae est moderatio cupiditatum rationi oboediens.
     <BLANKLINE>
     Si id dicis, vicimus.
     <BLANKLINE>
@@ -118,11 +120,12 @@ An example for a big text.
     <BLANKLINE>
     Quae animi affectio suum cuique tribuens atque hanc, quam dico.
     <BLANKLINE>
+    Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres
 
 Invalid Text
 ============
 
-The paramter `text` must be a string, or a TypeError is raised.
+The paramter ``text`` must be a string. Otherwise, a TypeError is raised.
 
 ::
 
