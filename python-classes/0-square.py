@@ -2,7 +2,7 @@
 """Defines a Class for a Square"""
 
 
-class Square(self):
+class Square:
     """
     An empty class to define a square.
     For now just a placeholder here for future use.
