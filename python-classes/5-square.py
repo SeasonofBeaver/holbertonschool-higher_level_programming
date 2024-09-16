@@ -18,10 +18,12 @@ class Square:
         """
         self.__size = size
 
+    @property
     def size(self):
         """retrieves the size of the square"""
         return (self.__size)
 
+    @size.setter
     def size(self, value):
         """looks if value is a positive integer otherwise raises error"""
         if not isinstance(value, int):
