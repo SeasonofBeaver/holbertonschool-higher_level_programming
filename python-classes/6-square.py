@@ -7,7 +7,7 @@ class Square:
     An empty class to define a square.
     For now just a placeholder here for future use.
     """
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Creates a new square.
 
         Args:
