@@ -6,7 +6,7 @@ class Rectangle:
     """A class that defines a Rectangle with height and width
 
     Attributes:
-        number_of_instances (int): The number of Rectangle instances.    
+        number_of_instances (int): The number of Rectangle instances.
     """
 
     number_of_instances = 0
