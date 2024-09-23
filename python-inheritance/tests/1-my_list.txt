@@ -1,14 +1,20 @@
 # Test 1: Check if MyList inherits from list
+::
+
     >>> my_list = MyList()
     >>> isinstance(my_list, list)
     True
 
 # Test 2: Check if the list is initialized as empty
+::
+
     >>> my_list = MyList()
     >>> len(my_list)
     0
 
 # Test 3: Add elements to MyList and check its content
+::
+
     >>> my_list.append(4)
     >>> my_list.append(1)
     >>> my_list.append(3)
@@ -17,21 +23,29 @@
     [4, 1, 3, 2]
 
 # Test 4: Test the print_sorted() method output
+::
+
     >>> my_list.print_sorted()
     [1, 2, 3, 4]
 
 # Test 5: Test print_sorted() on an empty list
+::
+
     >>> empty_list = MyList()
     >>> empty_list.print_sorted()
     []
 
 # Test 6: Test print_sorted() with negative numbers
+::
+
     >>> my_list_with_neg = MyList()
     >>> my_list_with_neg.extend([3, -1, 2, 0])
     >>> my_list_with_neg.print_sorted()
     [-1, 0, 2, 3]
 
 # Test 7: Checking for too many arguments:
+::
+
     >>> l.print_sorted(1)
 	Traceback (most recent call last):
 	TypeError: print_sorted() takes 1 positional argument but 2 were given
