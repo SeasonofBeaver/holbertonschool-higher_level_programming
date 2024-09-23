@@ -1,3 +1,16 @@
+Testing the `Mylist` function in Python
+============================================
+
+This is a doctest file for testing the `Mylist` function in Python.
+It provides examples and of how to use the function.
+
+Import file:
+------------
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+
 # Test 1: Check if MyList inherits from list
 ::
 
