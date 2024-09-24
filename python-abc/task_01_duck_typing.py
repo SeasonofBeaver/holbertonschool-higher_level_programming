@@ -70,17 +70,3 @@ def shape_info(shape):
     """
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
-
-
-# Testing with Circle and Rectangle
-
-# Create a Circle with radius 5
-circle = Circle(5)
-print("Circle Info:")
-shape_info(circle)
-print()
-
-# Create a Rectangle with width 4 and height 6
-rectangle = Rectangle(4, 6)
-print("Rectangle Info:")
-shape_info(rectangle)
