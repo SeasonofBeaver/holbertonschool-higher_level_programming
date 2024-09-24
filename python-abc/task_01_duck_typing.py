@@ -29,8 +29,7 @@ class Circle(Shape):
         return math.pi * self.radius ** 2
 
     def perimeter(self):
-        """Calculates and returns the perimeter
-        (circumference) of the circle."""
+        """Calculates and returns the perimeter of the circle."""
         return 2 * math.pi * self.radius
 
 
