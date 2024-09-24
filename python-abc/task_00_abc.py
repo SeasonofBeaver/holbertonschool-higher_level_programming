@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Defines an Animal Class and its subclasses."""
-from abc import ABC
+from abc import ABC, abstractmethod
 
 
 class Animal(ABC):
