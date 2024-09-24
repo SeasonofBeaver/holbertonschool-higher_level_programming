@@ -16,6 +16,7 @@ class Shape(ABC):
         """the perimeter of the shape"""
         pass
 
+
 class Circle(Shape):
     """Defines a Circle"""
 
@@ -28,8 +29,10 @@ class Circle(Shape):
         return math.pi * self.radius ** 2
 
     def perimeter(self):
-        """Calculates and returns the perimeter (circumference) of the circle."""
+        """Calculates and returns the perimeter
+        (circumference) of the circle."""
         return 2 * math.pi * self.radius
+
 
 class Rectangle(Shape):
     """Concrete class representing a Rectangle."""
@@ -46,6 +49,7 @@ class Rectangle(Shape):
     def perimeter(self):
         """Calculates and returns the perimeter of the rectangle."""
         return 2 * (self.width + self.height)
+
 
 def shape_info(shape):
     """Prints the area and perimeter of a given shape."""
