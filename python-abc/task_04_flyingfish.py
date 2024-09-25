@@ -15,6 +15,7 @@ class Fish(ABC):
         """tells the fish where to live"""
         print("The fish lives in water")
 
+
 class Bird(ABC):
     """Bird class that gives the classes
     the definition of Bird.
@@ -26,6 +27,7 @@ class Bird(ABC):
     def habitat(self):
         """tells the Bird where to live"""
         print("The bird lives in the sky")
+
 
 class FlyingFish(Fish, Bird):
     "Creates a flying fish that inherits Fish and bird class."
