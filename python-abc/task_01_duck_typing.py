@@ -29,7 +29,7 @@ class Circle(Shape):
         Raises:
             ValueError: If radius is not positive.
         """
-        if radius <= 0:
+        if radius < 0:
             raise ValueError("Radius must be a positive number")
         self.radius = radius
 
@@ -55,9 +55,9 @@ class Rectangle(Shape):
         Raises:
             ValueError: If width or height is not positive.
         """
-        if width <= 0:
+        if width < 0:
             raise ValueError("Width must be a positive number")
-        if height <= 0:
+        if height < 0:
             raise ValueError("Height must be a positive number")
         self.width = width
         self.height = height
