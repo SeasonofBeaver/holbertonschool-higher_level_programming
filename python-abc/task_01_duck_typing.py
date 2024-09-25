@@ -26,7 +26,11 @@ class Circle(Shape):
 
         Args:
             radius (int): the radius of the Circle.
+        Raises:
+            ValueError: If radius is not positive.
         """
+        if radius <= 0:
+            raise ValueError("Radius must be a positive number")
         self.radius = radius
 
     def area(self):
@@ -48,7 +52,13 @@ class Rectangle(Shape):
         Args:
             width (int): the width of the Rectangle.
             height (int): the height of the Rectangle.
+        Raises:
+            ValueError: If width or height is not positive.
         """
+        if width <= 0:
+            raise ValueError("Width must be a positive number")
+        if height <= 0:
+            raise ValueError("Height must be a positive number")
         self.width = width
         self.height = height
 
