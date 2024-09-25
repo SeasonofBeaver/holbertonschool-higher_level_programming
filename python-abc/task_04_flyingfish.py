@@ -33,11 +33,11 @@ class FlyingFish(Fish, Bird):
 
     def fly(self):
         """overriding the fly from bird"""
-        print("The flying fish is swimming!")
+        print("The flying fish is soaring!")
 
     def swim(self):
         """overriding the swim from fish"""
-        print("The flying fish is soaring!")
+        print("The flying fish is swimming!")
 
     def habitat(self):
         """overriding the habitat from fish and bird"""
