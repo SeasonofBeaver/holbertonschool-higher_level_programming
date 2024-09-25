@@ -31,13 +31,14 @@ class Bird(ABC):
 
 class FlyingFish(Fish, Bird):
     "Creates a flying fish that inherits Fish and bird class."
-    def swim(self):
-        """overriding the swim from fish"""
-        print("The flying fish is soaring!")
 
     def fly(self):
         """overriding the fly from bird"""
         print("The flying fish is swimming!")
+
+    def swim(self):
+        """overriding the swim from fish"""
+        print("The flying fish is soaring!")
 
     def habitat(self):
         """overriding the habitat from fish and bird"""
