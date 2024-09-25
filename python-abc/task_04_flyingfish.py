@@ -43,3 +43,11 @@ class FlyingFish(Fish, Bird):
     def habitat(self):
         """overriding the habitat from fish and bird"""
         print("The flying fish lives both in water and the sky!")
+
+if __name__ == "__main__":
+    flying_fish = FlyingFish()
+    flying_fish.fly()
+    flying_fish.swim()
+    flying_fish.habitat()
+
+    print(FlyingFish.mro())
