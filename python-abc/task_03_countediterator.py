@@ -7,10 +7,11 @@ class CountedIterator(ABC):
     def __init__(self, some_iterable):
         """
         Initializes the class with an iterator from the provided iterable.
-        Also initializes a counter to keep track of how many items are iterated.
+        Also initializes a counter keeping track of how many items are iterated
 
         Args:
-            iterable (iterable): Any iterable object like a list, tuple, or string.
+            iterable (iterable): Any iterable object like a list,
+            tuple, or string.
         """
         self.iterator = iter(some_iterable)
         self.counter = 0
