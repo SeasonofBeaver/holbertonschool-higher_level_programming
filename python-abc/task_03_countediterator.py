@@ -23,7 +23,7 @@ class CountedIterator(ABC):
     def __next__(self):
         """with every iteration of iter the counter will be updated"""
         try:
-            item = next(iteration)
+            item = next(self.ome_iterable)
             self.counter += 1
             return item
         except StopIteration:
