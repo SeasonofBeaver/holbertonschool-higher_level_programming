@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """Defines a Flying Fish class. with nultiple parent classes"""
-from abc import ABC, abstractmethod
 
 
-class Fish(ABC):
+class Fish:
     """Fish class that gives the classes
     the definition of fish.
     """
@@ -16,7 +15,7 @@ class Fish(ABC):
         print("The fish lives in water")
 
 
-class Bird(ABC):
+class Bird:
     """Bird class that gives the classes
     the definition of Bird.
     """
