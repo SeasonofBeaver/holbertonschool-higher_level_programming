@@ -15,5 +15,10 @@ class Student:
         self.age = age
 
     def to_json(self):
-        """returns the dictionary for JSON serialization of an object"""
+        """
+        Retrieves a dictionary representation of a Student instance.
+
+        Returns:
+            dict: A dictionary containing the instance's attributes.
+        """
         return self.__dict__
