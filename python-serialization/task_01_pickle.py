@@ -6,7 +6,14 @@ import pickle
 class CustomObject():
     """Defines an Object with some attributes."""
     def __init__(self, name, age, is_student):
-        """gets a name an age and asks if its a student."""
+        """
+        Initializes a CustomObject with attributes.
+
+        Args:
+            name (str): The name of the person.
+            age (int): The age of the person.
+            is_student (bool): Whether the person is a student or not.
+        """
         self.name = name
         self.age = age
         self.is_student = is_student
@@ -27,7 +34,15 @@ class CustomObject():
 
     @classmethod
     def deserialize(cls, filename):
-        """Deserialize the CustomObject and loads from file."""
+        """
+        Deserializes a CustomObject from the provided filename.
+
+        Args:
+            filename (str): The file that the object will be deserialized from.
+
+        Returns:
+            CustomObject: The deserialized object, or None if an error occurs.
+        """
         try:
             with open(filename, 'rb') as f:
                 obj = pickle.load(f)
