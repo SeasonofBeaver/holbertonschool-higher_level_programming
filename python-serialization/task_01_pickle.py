@@ -25,7 +25,6 @@ class CustomObject():
         except (FileNotFoundError):
             return None
 
-
     @classmethod
     def deserialize(cls, filename):
         """Deserialize the CustomObject and loads from file."""
