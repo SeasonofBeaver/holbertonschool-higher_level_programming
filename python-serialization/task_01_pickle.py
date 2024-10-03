@@ -33,6 +33,7 @@ class CustomObject():
         """
         with open(filename, 'wb') as f:
             pickle.dump(self, f)
+            return True
 
     @classmethod
     def deserialize(cls, filename):
