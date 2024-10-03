@@ -22,7 +22,7 @@ class CustomObject():
         try:
             with open(filename, 'wb') as f:
                 pickle.dump(self, f)
-        except (FileNotFoundError):
+        except Exception as e:
             return None
 
     @classmethod
