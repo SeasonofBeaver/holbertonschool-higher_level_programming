@@ -30,9 +30,6 @@ class CustomObject():
 
         Args:
             filename (str): The file to which the object will be serialized.
-
-        Returns:
-            None
         """
         with open(filename, 'wb') as f:
             pickle.dump(self, f)
@@ -44,9 +41,6 @@ class CustomObject():
 
         Args:
             filename (str): The file that the object will be deserialized from.
-
-        Returns:
-            CustomObject: The deserialized object, or None if an error occurs.
         """
         try:
             with open(filename, 'rb') as f:
