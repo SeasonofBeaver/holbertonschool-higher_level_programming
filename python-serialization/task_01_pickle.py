@@ -31,9 +31,12 @@ class CustomObject():
         Args:
             filename (str): The file to which the object will be serialized.
         """
-        with open(filename, 'wb') as f:
-            pickle.dump(self, f)
-            return True
+        try:
+            with open(filename, 'wb') as f:
+                pickle.dump(self, f)
+                return True
+        except Exception:
+            return None
 
     @classmethod
     def deserialize(cls, filename):
