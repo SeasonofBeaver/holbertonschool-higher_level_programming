@@ -48,7 +48,6 @@ class CustomObject():
         """
         try:
             with open(filename, 'rb') as f:
-                obj = pickle.load(f)
-                return obj
+                return pickle.load(f)
         except FileNotFoundError:
             return None
