@@ -39,18 +39,11 @@ def get_user(username):
 def add_user():
     """Do I need documentation here too?"""
     data = request.get_json()
+    username = data.get("username")
 
-    if not (key in data for key in ("username")):
+    if not "username":
         return jsonify({"error":"Username is required"}), 400
-    if not (key in data for key in ("name")):
-        return jsonify({"error":"Name is required"}), 400
-    if not (key in data for key in ("age")):
-        return jsonify({"error":"Age is required"}), 400
-    if not (key in data for key in ("city")):
-        return jsonify({"error":"City is required"}), 400
 
-    username = data['username']
-    
     if username in users:
         return jsonify({"error": "User already exists"}), 400
     
