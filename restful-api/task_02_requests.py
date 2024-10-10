@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+"""send http request and print or save posts."""
 import requests
 import csv
 
 
 def fetch_and_print_posts():
+    """send a http request and get posts from the url."""
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
     print(f"Status Code: {response.status_code}")
@@ -17,6 +19,7 @@ def fetch_and_print_posts():
 
 
 def fetch_and_save_posts():
+    """send http request and save posts to csv."""
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
     if response.status_code == 200:
