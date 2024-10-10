@@ -34,9 +34,8 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         else:
-            self.send_response("404 Not Found")
+            self.send_error(404, "Endpoint Not Found")
             self.end_headers()
-            self.wfile.write(b"Endpoint Not Found")
 
 def run(server_class=HTTPServer, handler_class=HTTPRequestHandler, port=8000):
     """run the http server."""
