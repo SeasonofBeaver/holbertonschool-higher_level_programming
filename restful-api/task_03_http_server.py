@@ -34,7 +34,7 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         else:
-            self.send_response(404)
+            self.send_response("404 Not Found")
             self.end_headers()
             self.wfile.write(b"Endpoint Not Found")
 
