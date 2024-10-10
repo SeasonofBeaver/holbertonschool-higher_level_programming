@@ -13,7 +13,7 @@ def fetch_and_print_posts():
     if response.status_code == 200:
         posts = response.json()
         for post in posts:
-            print(f"Title: {post["title"]}")
+            print("Title: {}".format(post["title"]))
     else:
         raise ValueError("request not succesful")
 
@@ -36,3 +36,6 @@ def fetch_and_save_posts():
             writer.writeheader()
             writer.writerows(posts_data)
         print("Posts saved to posts.csv")
+
+fetch_and_print_posts()
+fetch_and_save_posts()
