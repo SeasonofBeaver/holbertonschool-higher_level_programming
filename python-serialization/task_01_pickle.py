@@ -50,5 +50,5 @@ class CustomObject():
             with open(filename, 'rb') as f:
                 obj = pickle.load(f)
                 return obj
-        except FileNotFoundError:
+        except Exception:
             return None
