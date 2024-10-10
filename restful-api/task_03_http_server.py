@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+"""testing if we need documentation"""
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
 
 class HTTPRequestHandler(BaseHTTPRequestHandler):
+    """get definition to see the url."""
     def do_GET(self):
         if self.path == "/":
             self.send_response(200)
@@ -29,10 +31,12 @@ class HTTPRequestHandler(BaseHTTPRequestHandler):
             self.end_headers()
 
 def run(server_class=HTTPServer, handler_class=HTTPRequestHandler, port=8000):
+    """run the http server."""
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print("Starting server on port {}...".format(port))
     httpd.serve_forever()
 
 if __name__ == '__main__':
+    """starts the programm."""
     run()
