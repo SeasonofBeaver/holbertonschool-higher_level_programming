@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Do I need documentation here too?"""
 from flask import Flask, jsonify, request
 
 
@@ -11,19 +12,23 @@ users = {
 
 @app.route('/')
 def home():
+    """Do I need documentation here too?"""
     return "Welcome to the Flask API!"
 
 @app.route('/data')
 def get_usernames():
+    """Do I need documentation here too?"""
     usernames = list(users.keys())
     return jsonify(usernames)
 
 @app.route('/status')
 def status():
+    """Do I need documentation here too?"""
     return "OK"
 
 @app.route('/users/<username>')
 def get_user(username):
+    """Do I need documentation here too?"""
     user = users.get(username)
     if user:
         return jsonify(user)
@@ -32,6 +37,7 @@ def get_user(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
+    """Do I need documentation here too?"""
     data = request.get_json()
 
     if not (key in data for key in ("username")):
@@ -57,4 +63,5 @@ def add_user():
     return jsonify({"message": "User added", "user": users[username]}), 201
 
 if __name__ == "__main__":
+    """Do I need documentation here too?"""
     app.run()
