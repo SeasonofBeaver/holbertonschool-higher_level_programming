@@ -1,14 +1,11 @@
 #!/usr/bin/python3
 """Do I need documentation here too?"""
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, json
 
 
 app = Flask(__name__)
 
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"},
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-    }
+users = {}
 
 
 @app.route('/')
@@ -44,24 +41,16 @@ def get_user(username):
 def add_user():
     """Do I need documentation here too?"""
     data = request.get_json()
-    username = data.get("username")
+    username = data.get('username')
 
     if not username:
         return jsonify({"error": "Username is required"}), 400
+    else:
+    users[username] = data
 
-    if username in users:
-        return jsonify({"error": "User already exists"}), 400
-
-    users[username] = {
-        "username": username,
-        "name": data.get("name"),
-        "age": data.get("age"),
-        "city": data.get("city")
-    }
-
-    return jsonify({"message": "User added", "user": users[username]}), 201
+    return jsonify({"message": "User added", "user": data}), 201
 
 
 if __name__ == "__main__":
     """Do I need documentation here too?"""
-    app.run()
+    app.run(debug=True)
