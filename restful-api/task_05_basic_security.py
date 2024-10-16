@@ -6,12 +6,6 @@ from flask_jwt_extended import JWTManager, create_access_token
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
-app = Flask(__name__)
-auth = HTTPBasicAuth()
-
-app.config['JWT_SECRET_KEY'] = 'justTestingKeys'
-jwt = JWTManager(app)
-
 users = {
     "user1": {
         "username": "user1",
@@ -26,10 +20,14 @@ users = {
 }
 
 
+app = Flask(__name__)
+auth = HTTPBasicAuth()
+
+
 @auth.verify_password
 def verify_password(username, password):
-    if username in users and check_password_hash(
-            users[username]["password"], password):
+    user = users.get(username)
+    if user and check_password_hash(user["password"], password):
         return username
     return None
 
@@ -43,6 +41,10 @@ def home():
 @auth.login_required
 def basic_protected():
     return "Basic Auth: Access Granted"
+
+
+app.config['JWT_SECRET_KEY'] = 'my_secret_key'
+jwt = JWTManager(app)
 
 
 @app.route("/login", methods=["POST"])
@@ -73,7 +75,7 @@ def admin_only():
     identity = get_jwt_identity()
     if identity not in users:
         return jsonify({"error": "User not found"}), 404
-    if users[identity]["role"] != "admin":
+    if users[identity]['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted"
 
@@ -103,5 +105,5 @@ def handle_needs_fresh_token_error(err):
     return jsonify({"error": "Fresh token required"}), 401
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
