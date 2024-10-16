@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from flask import Flask, jsonify, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_httpauth import HTTPBasicAuth
@@ -50,7 +51,7 @@ jwt = JWTManager(app)
 def login():
     data = request.get_json()
     username = data.get("username")
-    password = data.json.get("password")
+    password = data.get("password")
 
     if not username or not password:
         return jsonify({"message": "Missing username or password"}), 400
