@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Creates an AIP which is password secured."""
 from flask import Flask, jsonify, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_httpauth import HTTPBasicAuth
@@ -20,10 +21,13 @@ users = {
 }
 
 
+"""Creates Flask App"""
 app = Flask(__name__)
+"""initializes a HTTPBasicAuth instance."""
 auth = HTTPBasicAuth()
 
 
+"""verifies Password of each user."""
 @auth.verify_password
 def verify_password(username, password):
     user = users.get(username)
@@ -32,21 +36,26 @@ def verify_password(username, password):
     return None
 
 
+"""Creates a home page so you can access the API"""
 @app.route("/")
 def home():
     return "Welcome to the Flask API!"
 
 
+"""basic protected route"""
 @app.route("/basic-protected")
 @auth.login_required
 def basic_protected():
     return "Basic Auth: Access Granted"
 
 
+"""Role based protected route depends on admin or user"""
 app.config['JWT_SECRET_KEY'] = 'my_secret_key'
+"""initializes a JWTManager instance."""
 jwt = JWTManager(app)
 
 
+"""path to log in and get a session token"""
 @app.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
@@ -63,12 +72,14 @@ def login():
         return jsonify({"message": "Bad username or password"}), 401
 
 
+"""path that needs jwt authentication."""
 @app.route("/jwt-protected")
 @jwt_required()
 def jwt_protected():
     return "JWT Auth: Access Granted"
 
 
+"""path that needs jwt authentication and the admin role."""
 @app.route("/admin-only")
 @jwt_required()
 def admin_only():
@@ -80,6 +91,7 @@ def admin_only():
     return "Admin Access: Granted"
 
 
+"""Error handlers for JWT authentication"""
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
     return jsonify({"error": "Missing or invalid token"}), 401
@@ -105,5 +117,6 @@ def handle_needs_fresh_token_error(err):
     return jsonify({"error": "Fresh token required"}), 401
 
 
+"""Runs the program."""
 if __name__ == '__main__':
     app.run()
