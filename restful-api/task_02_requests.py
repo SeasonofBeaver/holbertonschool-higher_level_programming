@@ -37,5 +37,6 @@ def fetch_and_save_posts():
             writer.writerows(posts_data)
         print("Posts saved to posts.csv")
 
+
 fetch_and_print_posts()
 fetch_and_save_posts()
