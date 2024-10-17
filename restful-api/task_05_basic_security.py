@@ -50,7 +50,7 @@ def basic_protected():
 
 
 # Role based protected route depends on admin or user
-app.config['JWT_SECRET_KEY'] = 'my_secret_key'
+app.config['JWT_SECRET_KEY'] = "my_secret_key"
 # initializes a JWTManager instance.
 jwt = JWTManager(app)
 
@@ -58,14 +58,13 @@ jwt = JWTManager(app)
 # path to log in and get a session token
 @app.route("/login", methods=["POST"])
 def login():
-    data = request.get_json()
-    username = data.get("username")
-    password = data.get("password")
+    username = request.json.get('username', None)
+    password = request.json.get('password', None)
 
     if not username or not password:
         return jsonify({"message": "Missing username or password"}), 400
     user = users.get(username)
-    if user and check_password_hash(user["password"], password):
+    if user and check_password_hash(user['password'], password):
         access_token = create_access_token(identity=username)
         return jsonify(access_token=access_token), 200
     else:
@@ -83,10 +82,10 @@ def jwt_protected():
 @app.route("/admin-only")
 @jwt_required()
 def admin_only():
-    identity = get_jwt_identity()
-    if identity not in users:
+    current_user = get_jwt_identity()
+    if current_user not in users:
         return jsonify({"error": "User not found"}), 404
-    if users[identity]['role'] != 'admin':
+    if users[current_user]['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
     return "Admin Access: Granted"
 
