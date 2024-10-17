@@ -15,7 +15,7 @@ users = {
     },
     "admin1": {
         "username": "admin1",
-        "password": generate_password_hash("adminpass"),
+        "password": generate_password_hash("password"),
         "role": "admin"
     }
 }
@@ -58,8 +58,9 @@ jwt = JWTManager(app)
 # path to log in and get a session token
 @app.route("/login", methods=["POST"])
 def login():
-    username = request.json.get('username', None)
-    password = request.json.get('password', None)
+    data = request.get_json()
+    username = request.get('username', None)
+    password = request.get('password', None)
 
     if not username or not password:
         return jsonify({"message": "Missing username or password"}), 400
