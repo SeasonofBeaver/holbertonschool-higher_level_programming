@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Definition of the State class and Base instance for SQLAlchemy ORM."""
+"""Defines a Class of a state for our database."""
 from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 import sys
@@ -8,7 +8,6 @@ Base = declarative_base()
 
 
 class State(Base):
-    """State class that links to the MySQL table states."""
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
