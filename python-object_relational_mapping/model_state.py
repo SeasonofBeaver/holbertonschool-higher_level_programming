@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""""""
+"""Creates a model of a state."""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
