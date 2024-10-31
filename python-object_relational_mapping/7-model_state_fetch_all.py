@@ -8,13 +8,13 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ == "__main__":
-    mysql username = argv[1]
-    mysql password = argv[2]
-    database name = argv[3]
+    mysql_username = argv[1]
+    mysql_password = argv[2]
+    database_name = argv[3]
 
     engine = create_engine(
-        f'mysql+mysqldb://{mysql username}:{mysql password}@localhost:3306/'
-        f'{database name}'
+        f'mysql+mysqldb://{mysql_username}:{mysql_password}@localhost:3306/'
+        f'{database_name}'
         )
     Session = sessionmaker(bind=engine)
 
