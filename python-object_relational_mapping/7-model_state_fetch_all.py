@@ -10,7 +10,7 @@ from model_state import Base, State
 if __name__ == "__main__":
     mysql_username = argv[1]
     mysql_password = argv[2]
-    database_name = argv[3]
+    database_names = argv[3]
 
     engine = create_engine(
         f'mysql+mysqldb://{mysql_username}:{mysql_password}@localhost:3306/'
