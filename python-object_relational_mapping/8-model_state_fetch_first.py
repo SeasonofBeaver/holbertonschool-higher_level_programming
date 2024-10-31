@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""lists all state objects from the database."""
+"""lists first state objects from the database."""
 
 import sys
 from sqlalchemy import create_engine
