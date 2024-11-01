@@ -20,7 +20,8 @@ if __name__ == "__main__":
 
     session = Session()
 
-    session.add(State(name="Louisiana"))
+    new_state = State(name="Louisiana")
+    session.add(new_state)
     session.commit()
 
     print(new_state.id)
