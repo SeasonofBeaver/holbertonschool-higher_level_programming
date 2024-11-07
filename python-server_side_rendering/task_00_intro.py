@@ -4,13 +4,15 @@ import os
 
 def generate_invitations(template, attendees):
     if not isinstance(template, str):
-        raise TypeError(f"Invalid input: template should be a string, \
-                        got {type(template).__name__}")
+        print(f"Invalid input: template should be a string, \
+              got {type(template).__name__}")
+        return
 
     if not isinstance(attendees, list) or not all(isinstance(attendee, dict)
                                                   for attendee in attendees):
-        raise TypeError(f"Invalid input: attendees should be a list of \
-                        dictionaries, got {type(attendees).__name__}")
+        print(f"Invalid input: attendees should be a list of \
+              dictionaries, got {type(attendees).__name__}")
+        return
 
     if not template.strip():
         print("Template is empty, no output files generated.")
