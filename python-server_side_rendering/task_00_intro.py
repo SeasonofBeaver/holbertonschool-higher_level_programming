@@ -18,8 +18,11 @@ def generate_invitations(template, attendees):
 
     for index, attendee in enumerate(attendees, start=1):
         message = template
+        
         for key, value in attendee.items():
-            message = message.replace(f'{{{key}}}', value)
+            if value is None:
+                value = "N/A"
+            message = message.replace(f'{{{key}}}', str(value))
 
         message = re.sub(r'{[^{}]+}', "N/A", message)
 
