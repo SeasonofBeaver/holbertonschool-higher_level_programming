@@ -1,32 +1,35 @@
 #!/usr/bin/python3
-import re
 import os
 
 
 def generate_invitations(template, attendees):
     if not isinstance(template, str):
-        raise TypeError(f"Invalid input: template should be \
-                        a string, got {type(template).__name__}")
+        raise TypeError(f"Invalid input: template should be a string, \
+                        got {type(template).__name__}")
+
     if not isinstance(attendees, list) or not all(isinstance(attendee, dict)
                                                   for attendee in attendees):
-        raise TypeError(f"Invalid input: attendees should be \
-                        a list, got {type(attendees).__name__}")
+        raise TypeError(f"Invalid input: attendees should be a list of \
+                        dictionaries, got {type(attendees).__name__}")
+
     if not template.strip():
-        raise ValueError("Template is empty, no output files generated.")
+        print("Template is empty, no output files generated.")
+        return
     if not attendees:
-        raise ValueError("No data provided, no output files generated.")
+        print("No data provided, no output files generated.")
+        return
 
     for index, attendee in enumerate(attendees, start=1):
-        message = template
         try:
-            for key, value in attendee.items():
-                if value is None:
-                    value = "N/A"
-                message = message.replace(f'{{{key}}}', str(value))
+            message = template
 
-            message = re.sub(r'{[^{}]+}', "N/A", message)
+            for key in ["name", "event_title", "event_date", "event_location"]:
+                value = attendee.get(key, "N/A")
+                message = message.replace(f'{{{key}}}', value
+                                          if value is not None else "N/A")
 
             output_filename = f"output_{index}.txt"
+
             if os.path.exists(output_filename):
                 print(f"File {output_filename} already exists. \
                       Skipping write.")
@@ -34,6 +37,9 @@ def generate_invitations(template, attendees):
 
             with open(output_filename, "w") as output_file:
                 output_file.write(message)
+
+            print(f"File {output_filename} generated successfully.")
+
         except Exception as e:
-            raise (f"An Error occured trying to make an invitation for \
-                   {attendee.get('name', 'N/A')}: {e}")
+            print(f"An error occurred while generating the invitation \
+                  for {attendee.get('name', 'N/A')}: {e}")
