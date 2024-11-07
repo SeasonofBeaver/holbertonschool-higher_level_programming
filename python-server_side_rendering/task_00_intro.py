@@ -5,9 +5,12 @@ import os
 
 def generate_invitations(template, attendees):
     if not isinstance(template, str):
-        raise TypeError(f"Invalid input: template should be a string, got {type(template).__name__}")
-    if not isinstance(attendees, list) or not all(isinstance(attendee, dict) for attendee in attendees):
-        raise TypeError(f"Invalid input: attendees should be a list, got {type(attendees).__name__}")
+        raise TypeError(f"Invalid input: template should be \
+                        a string, got {type(template).__name__}")
+    if not isinstance(attendees, list) or not all(isinstance(attendee, dict)
+                                                  for attendee in attendees):
+        raise TypeError(f"Invalid input: attendees should be \
+                        a list, got {type(attendees).__name__}")
     if not template.strip():
         raise ValueError("Template is empty, no output files generated.")
     if not attendees:
@@ -17,7 +20,7 @@ def generate_invitations(template, attendees):
         message = template
         for key, value in attendee.items():
             message = message.replace(f'{{{key}}}', value)
-        
+
         message = re.sub(r'{[^{}]+}', "N/A", message)
 
         output_filename = f"output_{index}.txt"
